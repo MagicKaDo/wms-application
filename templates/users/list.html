@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mx-auto px-4">
+    <h1 class="text-2xl font-bold my-4">Lista użytkowników</h1>
+    <a href="{{ url_for('register') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mb-4 inline-block">Dodaj nowego użytkownika</a>
+    
+    <table class="min-w-full table-auto">
+        <thead class="bg-gray-200">
+            <tr>
+                <th class="px-4 py-2">ID</th>
+                <th class="px-4 py-2">Nazwa użytkownika</th>
+                <th class="px-4 py-2">Rola</th>
+                <th class="px-4 py-2">Akcje</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr class="border-b">
+                <td class="px-4 py-2">{{ user.id }}</td>
+                <td class="px-4 py-2">{{ user.username }}</td>
+                <td class="px-4 py-2">{{ user.role }}</td>
+                <td class="px-4 py-2">
+                    <a href="{{ url_for('edit_user', user_id=user.id) }}" class="bg-green-500 hover:bg-green-700 text-white py-1 px-2 rounded">Edytuj</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

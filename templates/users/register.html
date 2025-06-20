@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg mt-10">
+    <h2 class="text-2xl font-bold mb-6 text-center">Rejestracja nowego użytkownika</h2>
+    
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        
+        <div class="mb-4">
+            {{ form.username.label(class="block text-gray-700 text-sm font-bold mb-2") }}
+            {{ form.username(class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline") }}
+        </div>
+        
+        <div class="mb-4">
+            {{ form.password.label(class="block text-gray-700 text-sm font-bold mb-2") }}
+            {{ form.password(class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline") }}
+        </div>
+        
+        <div class="mb-4">
+            {{ form.confirm_password.label(class="block text-gray-700 text-sm font-bold mb-2") }}
+            {{ form.confirm_password(class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline") }}
+        </div>
+        
+        <div class="mb-6">
+            {{ form.role.label(class="block text-gray-700 text-sm font-bold mb-2") }}
+            {{ form.role(class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline") }}
+        </div>
+        
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" type="submit">
+            Zarejestruj
+        </button>
+    </form>
+</div>
+{% endblock %}

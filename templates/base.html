@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vulcan ERP - Hurtownia Budowlana</title>
+    <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- ... istniejący kod ... -->
+<nav class="bg-blue-600 text-white p-4">
+    <div class="container mx-auto flex justify-between items-center">
+        <a href="/" class="text-2xl font-bold">Vulcan ERP</a>
+        <div>
+            {% if current_user.is_authenticated %}
+                <a href="{{ url_for('product_list') }}" class="mr-4">Produkty</a>
+                <a href="{{ url_for('location_list') }}" class="mr-4">Lokalizacje</a>
+                <a href="{{ url_for('user_list') }}" class="mr-4">Użytkownicy</a>
+                <span class="mr-4">{{ current_user.username }}</span>
+                <a href="{{ url_for('logout') }}" class="bg-red-500 hover:bg-red-700 px-4 py-2 rounded">Wyloguj</a>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+<!-- ... istniejący kod ... -->
+
+    <div class="container mx-auto mt-8 p-4">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} p-4 mb-4 bg-{% if category == 'success' %}green{% else %}red{% endif %}-100 text-{% if category == 'success' %}green{% else %}red{% endif %}-800 rounded">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

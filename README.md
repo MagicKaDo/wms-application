@@ -76,12 +76,6 @@ Aplikacja webowa do zarządzania magazynem, stworzona w Pythonie z użyciem fram
 
 Aplikacja wykorzystuje `Flask-Login` do zarządzania sesją użytkownika i `Werkzeug` do bezpiecznego haszowania haseł.
 
-## 📌 TODO (opcjonalnie)
-
-- Interfejs webowy z Flask lub frontendem (np. React)
-- REST API do zarządzania zasobami
-- Obsługa uprawnień według ról
-- Powiadomienia o niskim stanie magazynowym
 
 ## 📄 Licencja
 

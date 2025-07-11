@@ -24,11 +24,11 @@ class ProductForm(FlaskForm):
 class UserForm(FlaskForm):
     username = StringField('Login', validators=[DataRequired(), Length(min=4, max=20)])
     role = SelectField('Rola', choices=[
-        ('admin', 'Administrator'),
-        ('manager', 'Kierownik magazynu'),
-        ('worker', 'Pracownik magazynu'),
-        ('accountant', 'Księgowy'),
-        ('analyst', 'Analityk biznesowy')
+        ('Administrator', 'Administrator'),
+        ('Kierownik magazynu', 'Kierownik magazynu'),
+        ('Pracownik magazynu', 'Pracownik magazynu'),
+        ('Księgowy', 'Księgowy'),
+        ('Analityk biznesowy', 'Analityk biznesowy')
     ])
 
 class RegistrationForm(FlaskForm):
@@ -36,9 +36,9 @@ class RegistrationForm(FlaskForm):
     password = PasswordField('Hasło', validators=[DataRequired()])
     confirm_password = PasswordField('Potwierdź hasło', validators=[DataRequired(), EqualTo('password')])
     role = SelectField('Rola', choices=[
-        ('admin', 'Administrator'),
-        ('manager', 'Kierownik magazynu'),
-        ('worker', 'Pracownik magazynu'),
-        ('accountant', 'Księgowy'),
-        ('analyst', 'Analityk biznesowy')
+        ('Administrator', 'Administrator'),
+        ('Kierownik magazynu', 'Kierownik magazynu'),
+        ('Pracownik magazynu', 'Pracownik magazynu'),
+        ('Księgowy', 'Księgowy'),
+        ('Analityk biznesowy', 'Analityk biznesowy')
     ])

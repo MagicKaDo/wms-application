@@ -106,14 +106,14 @@ def add_product():
 @app.route('/users')
 @login_required
 def user_list():
-    users = User.query.all()
+    users = User.query.order_by(User.id.asc()).all()
     return render_template('users/list.html', users=users)
 # Rejestracja nowego użytkownika
 @app.route('/register', methods=['GET', 'POST'])
 @login_required
 def register():
     # Tylko admin może rejestrować nowych użytkowników
-    if current_user.role != 'admin':
+    if current_user.role != 'Administrator':
         flash('Brak uprawnień!', 'danger')
         return redirect(url_for('dashboard'))
     
@@ -219,7 +219,7 @@ def edit_location(location_id):
 @login_required
 def edit_user(user_id):
     # Tylko admin może edytować użytkowników
-    if current_user.role != 'admin':
+    if current_user.role != 'Administrator':
         flash('Brak uprawnień!', 'danger')
         return redirect(url_for('dashboard'))
     
